@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "MarkSaver",
+  "description": "Saves current bookmarks and allows you to load them between windows",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "marksaver.html"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "https://ajax.googleapis.com/",
+    "storage"
+  ]
+}

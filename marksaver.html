@@ -1,0 +1,31 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+
+<head>
+    <title>MarkSaver Popup</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+            font-size: 100%;
+            height: 500px;
+            width: 300px;
+        }
+    </style>
+
+    <script src="marksaver.js"></script>
+</head>
+
+<body>
+    <h1>I am saving your Marks</h1>
+    <p>Let's try saving a value: <input type="text" id="mark" /></p>
+    <p><button id="save-me">Save Me</button></p>
+    <p><button id="load-me">Load Me</button></p>
+    <div id="results"></div>
+</body>
+
+</html>
