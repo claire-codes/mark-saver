@@ -5,8 +5,9 @@ function saveValue() {
         "currentWindow": true
     }, function(tabs) {
         // Save it using the Chrome extension storage API.
+        var onlyUrls = getTabUrls(tabs);
         chrome.storage.sync.set({
-            'value': tabs
+            'value': onlyUrls
         }, function() {
             // Notify that we saved.
             printMessage('Settings saved');
@@ -22,11 +23,13 @@ function getTabUrls(arrayOfTabs) {
 
 function loadValue() {
     chrome.storage.sync.get('value', function(tabs) {
-        printMessage("Result is: " + tabs.value[0].url + "<br />There are " + tabs.value.length + " links");
-        var tabUrls = getTabUrls(tabs.value);
-        console.log(tabUrls);
-        for (var i = 0; i < tabUrls.length; i++) {
-            chrome.tabs.create({url : tabUrls[i]});
+        printMessage("Result is: " + tabs.value[0] + "<br />There are " + tabs.value.length + " links");
+        console.log(tabs);
+        var urls = tabs.value;
+        for (var i = 0; i < urls.length; i++) {
+            chrome.tabs.create({
+                url: urls[i]
+            });
         }
     });
 }
